@@ -4,6 +4,7 @@ var exec = require('child_process').exec;
 var mongoose = require('mongoose');
 var Post = require('./models/post');
 var AdvancedMaths = require('./modules/advanced-maths');
+require('dotenv').load();
 
 app.set('view engine' , 'ejs');
 
@@ -15,7 +16,7 @@ app.get('/' , function(req , res){
 
 // connect to database
 if(process.env.DB_HOST) {
-  
+
   mongoose.connect(process.env.DB_HOST);
 
   app.get("/posts" , function(req,res){
