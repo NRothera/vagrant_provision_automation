@@ -13,11 +13,21 @@ Vagrant.configure("2") do |config|
     app.hostsupdater.aliases = ["dev.local"]
 
     #synced app folder
-    app.vm.synced_folder "app", "/app"
+    app.vm.synced_folder "app", "/home/ubuntu/app"
+
+    #provision with chef
+    app.vm.provision "chef_solo" do |chef|
+      chef.add_recipe "node::default"
+    end
  end
   config.vm.define "db" do |db|
     db.vm.box = "ubuntu/xenial64"
     db.vm.network "private_network", ip: "192.168.10.151"
     db.hostsupdater.aliases = ["database.local"]
+
+    #provision with chef
+    db.vm.provision "chef_solo" do |chef|
+      chef.add_recipe "mongo::default"
+    end
  end
 end

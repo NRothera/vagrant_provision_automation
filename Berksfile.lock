@@ -1,0 +1,11 @@
+DEPENDENCIES
+  mongo
+    git: git@github.com:NRothera/chef_mongo_lab.git
+    revision: 70b18d52a626e7e22681ab1527c68167f04ab427
+  node
+    git: git@github.com:NRothera/Cook_books.git
+    revision: d6593865ae6e2f9b354b44bf50b75f1ed263565b
+
+GRAPH
+  mongo (0.1.0)
+  node (0.1.0)
